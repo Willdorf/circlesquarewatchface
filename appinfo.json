@@ -1,0 +1,34 @@
+{
+  "uuid": "7e72740b-c25d-435d-a4fe-f63a73b6e417",
+  "shortName": "circlesquared",
+  "longName": "circlesquared",
+  "companyName": "MakeAwesomeHappen",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+   	{
+		"type" : "png",
+		"name" : "IMAGE_30_TERNARY",
+		"file" : "30Ternary.png"
+	},
+	{
+		"type" : "png",
+		"name" : "IMAGE_6_SINGLE_BLOCKS",
+		"file" : "6SingleBlocks.png"
+	},
+	{
+		"type" : "png",
+		"name" : "IMAGE_SECONDS_TERNARY_REFLECT",
+		"file" : "SecondsTernaryReflect.png"
+	}
+    ]
+  }
+}
