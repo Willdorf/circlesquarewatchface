@@ -53,7 +53,7 @@ static void draw_watchface(Layer *layer, GContext *ctx) {
 	}
 	GPathInfo HOURS_LEFT_PATH_INFO = {
 		.num_points = 4,
-		.points = (GPoint []) {{0,0},{(left_hours*width)/12,0},{(left_hours*width)/12,27},{0,27}}
+		.points = (GPoint []) {{0,0},{(left_hours*width/12) + 2,0},{(left_hours*width/12) + 2,27},{0,27}}
 	};
 
 	GPath *s_hours_path_left = gpath_create(&HOURS_LEFT_PATH_INFO);
@@ -72,7 +72,7 @@ static void draw_watchface(Layer *layer, GContext *ctx) {
 
 	GPathInfo HOURS_RIGHT_PATH_INFO = {
 		.num_points = 4,
-		.points = (GPoint []) {{0,0},{(right_hours*width)/12,0},{(right_hours*width)/12,27},{0,27}}
+		.points = (GPoint []) {{0,0},{(right_hours*width/12) + 2,0},{(right_hours*width/12) + 2,27},{0,27}}
 	};
 
 	GPath *s_hours_path_right = gpath_create(&HOURS_RIGHT_PATH_INFO);
