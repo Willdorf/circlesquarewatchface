@@ -1,5 +1,7 @@
 #include <pebble.h>
 
+#define KEY_BACKGROUND_COLOR 0
+
 static Window *window;
 static Layer *s_layer;
 
@@ -120,6 +122,24 @@ static void draw_watchface(Layer *layer, GContext *ctx) {
 	gpath_draw_filled(ctx, s_mins_path_right);
 }
 
+static void set_background_color(int color) {
+	GColor background_color = GColorFromHEX(color);
+	window_set_background_color(window, background_color);
+}
+
+static void inbox_received_handler(DictionaryIterator *iter, void *context) {
+	APP_LOG(APP_LOG_LEVEL_DEBUG, "inbox received handler");
+	Tuple *background_color_t = dict_find(iter, KEY_BACKGROUND_COLOR);
+
+	if (background_color_t) {
+		int background_color = background_color_t->value->int32;
+		persist_write_int(KEY_BACKGROUND_COLOR, background_color);
+		set_background_color(background_color);
+
+		APP_LOG(APP_LOG_LEVEL_DEBUG, "background color: %d", background_color);
+	}
+}
+
 static void window_load(Window *window) {
 	Layer *window_layer = window_get_root_layer(window);
 	GRect bounds = layer_get_bounds(window_layer);
@@ -190,6 +210,10 @@ static void window_load(Window *window) {
 	r.origin.y = max_height - 32 - PADDING;
 	layer_set_frame((Layer *) s_ternary_minutes_layer_right, r);
 	layer_add_child(window_get_root_layer(window), (Layer *) s_ternary_minutes_layer_right);
+
+	if (persist_read_int(KEY_BACKGROUND_COLOR)) {
+		set_background_color(persist_read_int(KEY_BACKGROUND_COLOR));
+	}
 }
 
 static void window_unload(Window *window) {
@@ -216,6 +240,9 @@ static void init(void) {
 
 	//Register with TickTimerService
 	tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
+
+	app_message_register_inbox_received(inbox_received_handler);
+	app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
 
 	//display the time right away
 	time_t start_time = time(NULL);

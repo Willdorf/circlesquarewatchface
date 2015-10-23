@@ -7,3 +7,6 @@ build
 
 #Ignore tags
 tags
+
+#ignore frontend frameworks
+bower_components/
