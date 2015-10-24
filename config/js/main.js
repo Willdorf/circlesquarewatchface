@@ -38,7 +38,7 @@ function getAndStoreConfigData() {
 function loadOptions() {
 	var $backgroundColorPicker = $('#backgroundColorPicker');
 
-	if (localStorage.topBarColor) {
+	if (localStorage.backgroundColor) {
 		$backgroundColorPicker[0].value = localStorage.backgroundColor;
 	}
 }
