@@ -29,7 +29,7 @@ function getAndStoreConfigData() {
 		backgroundColor : $backgroundColorPicker.val(),
 	};
 
-	localStorage.backgroundColor = options.backgroundColor;
+	localStorage.willdorfcirclesquaredbackgroundColor = options.backgroundColor;
 
 	console.log('Got Options: ' + JSON.stringify(options));
 	return options;
@@ -39,7 +39,7 @@ function loadOptions() {
 	var $backgroundColorPicker = $('#backgroundColorPicker');
 
 	if (localStorage.backgroundColor) {
-		$backgroundColorPicker[0].value = localStorage.backgroundColor;
+		$backgroundColorPicker[0].value = localStorage.willdorfcirclesquaredbackgroundColor;
 	}
 }
 
