@@ -1,8 +1,8 @@
 {
   "uuid": "7e72740b-c25d-435d-a4fe-f63a73b6e417",
-  "shortName": "circlesquared",
-  "longName": "circlesquared",
-  "companyName": "MakeAwesomeHappen",
+  "shortName": "Circle Squared",
+  "longName": "Circle Squared",
+  "companyName": "Willdorf",
   "versionLabel": "1.0",
   "sdkVersion": "3",
   "targetPlatforms": ["basalt"],
