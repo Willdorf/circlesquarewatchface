@@ -134,6 +134,9 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
 
 	if (background_color_t) {
 		int background_color = background_color_t->value->int32;
+		if (background_color == 0) { //quick fix so that black colour persists
+			background_color++;
+		}
 		persist_write_int(KEY_BACKGROUND_COLOR, background_color);
 		set_background_color(background_color);
 
