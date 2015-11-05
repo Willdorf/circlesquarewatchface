@@ -52,6 +52,7 @@ static void draw_watchface(Layer *layer, GContext *ctx) {
 	if (cur_hours == 0) {
 		cur_hours = 12;
 	}
+
 	int8_t left_hours = cur_hours;
 	if (cur_hours > 6) {
 		left_hours = 6;
